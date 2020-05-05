@@ -7,6 +7,8 @@ const forecast = require('./utils/forecast')
 
 const app = express()
 
+// new line for Heroku
+const port = process.env.PORT || 3000
 
 // Define paths foe Express config
 const publicDirectoryPath = (path.join(__dirname, '../public'))
@@ -101,6 +103,7 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Fired Up!')
+// to support Heroku we have to change a reference and add a new line
+app.listen(port, () => {
+    console.log('Sever is up on port ' + port)
 })
